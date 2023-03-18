@@ -38,8 +38,9 @@ RUN apt-get install -y --no-install-recommends \
         zsh
 RUN pip3 install torch==1.12.1+cu116 -f https://download.pytorch.org/whl/torch_stable.html && \
     pip3 install --extra-index-url https://pypi.ngc.nvidia.com regex fire tritonclient[all] && \
-    pip3 install transformers huggingface_hub tokenizers SentencePiece sacrebleu datasets tqdm omegaconf rouge_score && \
+    pip3 install huggingface_hub tokenizers SentencePiece sacrebleu datasets tqdm omegaconf rouge_score && \
     pip3 install cmake==3.24.3
+    pip3 install git+https://github.com/mylu/transformers
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
